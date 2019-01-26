@@ -2,10 +2,27 @@ $(document).ready(() => {
   $('#form').on('submit', (e) => {
     $('.modal').modal('show');
     const data = $('#form').serializeArray();
-    $.post('localhost:8080/getAnalyze', data, (data) => {
-      console.log(data);
-      $('.modal').modal('hide');
+    $.ajax({
+      url: 'localhost:8080/getAnalyze',
+      type: 'POST',
+      data: data,
+      dataType: 'jsonp',
+      success: (json) => {
+        console.log(json);
+        console.log('success');
+      },
+      error: () => {
+        $('.modal').modal('hide');
+        console.log('fail');
+      }
     });
+    // $.post('localhost:8080/getAnalyze', data, (data) => {
+    //   console.log(data);
+    //   $('.modal').modal('hide');
+    // }).fail(() => {
+    //   console.log('fail');
+    //   $('.modal').modal('hide');
+    // });
     e.preventDefault();
   });
   /*$('#submit-btn').click((e) => {
