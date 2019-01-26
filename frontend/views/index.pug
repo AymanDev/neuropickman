@@ -1,7 +1,11 @@
 extends layout
-
+block head
+  script(src='javascripts/index.js')
 block content
   div(class='container px-sm-0')
+    div(id='spinner-modal' class='modal fade' tabindex='-1' role='dialog')
+      div(class='modal-dialog modal-dialog-centered text-center' role='document')
+        span(class='fa fa-spinner fa-spin fa-3x w-100 text-light')
     form(method='post' action='')
       div(class='form-group')
         label(class='text-light' for='last-sum-credit') Последняя сумма по кредиту:
@@ -65,5 +69,5 @@ block content
       div(class='form-group')
         label(class='text-light' for='skipped-pays') Число просроченных платежей более чем на 30 дней за 2 года:
         input(id='skipped-pays' name='skippedPaydays' class='form-control' type='number' placeholder='1')
-      div(class='row justify-content-center')
-        button(type='submit' class='btn btn-secondary') Отправить на обработку
+      div(class='row justify-content-center pb-5')
+        button(id='submit-btn' type='submit' class='btn btn-secondary') Отправить на обработку
