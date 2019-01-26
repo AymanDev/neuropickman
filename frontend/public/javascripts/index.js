@@ -4,8 +4,9 @@ $(document).ready(() => {
     const data = $('#form').serializeArray();
     $.ajax({
       url: 'localhost:8080/getAnalyze',
-      type: 'post',
-      data: data,
+      type: 'POST',
+      contentType: "application/json; charset=utf-8",
+      data: JSON.stringify(data),
       dataType: 'jsonp',
       success: (json) => {
         console.log(json);
