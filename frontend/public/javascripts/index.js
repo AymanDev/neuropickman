@@ -4,7 +4,7 @@ $(document).ready(() => {
     const data = $('#form').serializeArray();
     $.ajax({
       url: 'localhost:8080/getAnalyze',
-      type: 'POST',
+      type: 'post',
       data: data,
       dataType: 'jsonp',
       success: (json) => {
