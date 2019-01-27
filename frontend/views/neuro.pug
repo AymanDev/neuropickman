@@ -1,0 +1,105 @@
+extends layout
+block head
+  script(src='javascripts/neuro.js')
+block content
+  // Error modal
+  div(id='response-error-modal' class='modal fade' tabindex='-1' role='dialog')
+    div(class='modal-dialog' role='document')
+      div(class='modal-content modal-bg-error')
+        div(class='modal-header')
+          h5(class='modal-title') Ошибка обработки запроса!
+          button(type='button' class='close text-light' data-dismiss='modal' aria-label='Close')
+            span(aria-hidden='true') &times;
+        div(class='modal-body')
+          p Во время обработки запроса произошла ошибка!
+
+  // Success modal
+  div(id='response-success-modal' class='modal fade' tabindex='-1' role='dialog')
+    div(class='modal-dialog' role='document')
+      div(class='modal-content modal-bg-default')
+        div(class='modal-header')
+          h5(class='modal-title') Результат обработки запроса!
+          button(type='button' class='close' data-dismiss='modal' aria-label='Close')
+            span(aria-hidden='true') &times;
+        div(id='response-success-text' class='modal-body')
+          p Во время обработки запроса произошла ошибка!
+  // Loading modal
+  div(id='loading-modal' class='modal fade' tabindex='-1' role='dialog')
+    div(class='modal-dialog modal-dialog-centered text-center' role='document')
+      span(class='fa fa-spinner fa-spin fa-3x w-100 text-light')
+
+  div(class='container px-sm-0 py-4')
+    form(id='form')
+      label(class='text-light' for='last-sum-credit') Последняя сумма по кредиту:
+      div(class='input-group')
+        input(id='last-sum-credit' name='lastSumCredit' class='form-control' type='number' placeholder='2000' min='0')
+        div(class='input-group-append')
+          span(class='input-group-text') ₽
+      hr(class='bg-secondary')
+      div(class='form-check')
+        input(id='active-credits' name='hasActiveCredits' value='true' class='form-check-input active-debt-checkbox' type='checkbox')
+        label(class='text-light form-check-label' for='active-credits') Наличие непогашенных кредитов
+      hr(class='bg-secondary')
+      div(class='form-group pt-2')
+        label(class='text-light' for='credit-requests') Количество поданных запросов на кредит за последние 6 месяцев, исключая запросы на авто и ипотеку:
+        input(id='credit-requests' name='creditRequests' class='form-control' type='number' placeholder='2' min='0')
+      hr(class='bg-secondary')
+      label(class='text-light' for='per-month-cost') Сумма ежемесячного взноса при одобрении кредита:
+      div(class='input-group')
+        input(id='per-month-cost' name='perMonthCost' class='form-control' type='number' placeholder='2000' min='0')
+        div(class='input-group-append')
+          span(class='input-group-text') ₽
+      hr(class='bg-secondary')
+      label(class='text-light' for='current-debt') Текущая сумма долга по кредитам:
+      div(class='input-group')
+        input(id='current-debt' name='currentCreditDebt' class='form-control' type='number' placeholder='1500' min='0')
+        div(class='input-group-append')
+          span(class='input-group-text') ₽
+      hr(class='bg-secondary')
+      label(class='text-light' for='current-percent') Процентная ставка по кредиту:
+      div(class='input-group')
+        input(id='current-percent' name='currentCreditPercent' class='form-control' type='number' placeholder='15' min='0' max='25')
+        div(class='input-group-append')
+          span(class='input-group-text') %
+      hr(class='bg-secondary')
+      div(class='form-group')
+        label(class='text-light' for='month-credit') Месяц выдачи кредита:
+        select(id='month-credit' name='creditMonthReceive' class='form-control')
+          option(value='1') Январь
+          option(value='2') Февраль
+          option(value='3') Март
+          option(value='4') Апрель
+          option(value='5') Май
+          option(value='6') Июнь
+          option(value='7') Июль
+          option(value='8') Август
+          option(value='9') Сентябрь
+          option(value='10') Октябрь
+          option(value='11') Ноябрь
+          option(value='12') Декабрь
+      hr(class='bg-secondary')
+      div(class='form-group')
+        label(class='text-light' for='active-debts') Количество не погашенных кредитов:
+        input(id='active-debts' name='activeDebts' class='form-control' type='number' placeholder='1' min='0')
+      hr(class='bg-secondary')
+      div(class='form-group')
+        label(class='text-light' for='last-month-pay') Месяц последнего взноса по кредиту:
+        select(id='last-month-pay' name='lastMonthPayed' class='form-control')
+          option(value='1') Январь
+          option(value='2') Февраль
+          option(value='3') Март
+          option(value='4') Апрель
+          option(value='5') Май
+          option(value='6') Июнь
+          option(value='7') Июль
+          option(value='8') Август
+          option(value='9') Сентябрь
+          option(value='10') Октябрь
+          option(value='11') Ноябрь
+          option(value='12') Декабрь
+      hr(class='bg-secondary')
+      div(class='form-group')
+        label(class='text-light' for='skipped-pays') Число просроченных платежей более чем на 30 дней за 2 года:
+        input(id='skipped-pays' name='skippedPaydays' class='form-control' type='number' placeholder='1' min='0')
+      div(class='row justify-content-center pb-5')
+        button(id='submit-btn' type='submit' class='btn btn-default') Отправить на обработку

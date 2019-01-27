@@ -1,0 +1,30 @@
+#neuro-slide {
+  background: url("../images/neuro.jpg") no-repeat center center;
+  background-size: cover;
+}
+
+#pickman-slide {
+  background: url("../images/pickman.jpg") no-repeat center center;
+  background-size: cover;
+}
+
+
+#ai-slide {
+  background: url("../images/ai.jpg") no-repeat center center;
+  background-size: cover;
+}
+
+.jumbotron-text {
+  padding: 5px;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.jumbotron-default {
+  filter: grayscale(100%);
+  transition: 0.5s;
+}
+
+.jumbotron-default:hover{
+  filter: none;
+  transition: 0.5s;
+}

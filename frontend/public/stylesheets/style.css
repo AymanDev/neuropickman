@@ -1,4 +1,55 @@
+body {
+  background: rgb(238, 174, 202);
+  background: linear-gradient(90deg, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%) no-repeat center center fixed;
+  background-size: cover;
+}
+
+header, footer {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+main {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+input, select {
+  border-radius: 0 !important;
+}
+
+.btn-default {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 0;
+  color: var(--light);
+}
+
 .active-debt-checkbox {
   width: 1.2em;
   height: 1.2em;
+}
+
+.modal-content {
+  color: var(--light);
+  border: none;
+  border-radius: 0;
+}
+
+.modal-bg-default {
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.modal-bg-error {
+  background: rgba(245, 75, 75, 0.75);
+}
+
+.navbar-item {
+  border-bottom: 1px var(--dark) solid;
+}
+
+.navbar-item:active, .navbar-item.active {
+  border-bottom: 1px var(--primary) solid;
+  color: var(--secondary) !important;
+}
+
+.navbar-item:active > a, .navbar-item.active > a {
+  color: #c2c2c2 !important;
 }

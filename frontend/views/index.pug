@@ -1,73 +1,31 @@
 extends layout
 block head
-  script(src='javascripts/index.js')
+  link(rel='stylesheet', href='/stylesheets/index.css')
 block content
-  div(class='container px-sm-0')
-    div(id='spinner-modal' class='modal fade' tabindex='-1' role='dialog')
-      div(class='modal-dialog modal-dialog-centered text-center' role='document')
-        span(class='fa fa-spinner fa-spin fa-3x w-100 text-light')
-    form(id='form')
-      div(class='form-group')
-        label(class='text-light' for='last-sum-credit') Последняя сумма по кредиту:
-        input(id='last-sum-credit' name='lastSumCredit' class='form-control' type='number' placeholder='2000')
-      hr(class='bg-secondary')
-      div(class='form-check')
-        input(id='active-credits' name='hasActiveCredits' value='true' class='form-check-input active-debt-checkbox' type='checkbox')
-        label(class='text-light form-check-label' for='active-credits') Наличие непогашенных кредитов
-      hr(class='bg-secondary')
-      div(class='form-group pt-2')
-        label(class='text-light' for='credit-requests') Количество поданных запросов на кредит за последние 6 месяцев, исключая запросы на авто и ипотеку:
-        input(id='credit-requests' name='creditRequests' class='form-control' type='number' placeholder='2')
-      hr(class='bg-secondary')
-      div(class='form-group')
-        label(class='text-light' for='per-month-cost') Сумма ежемесячного взноса при одобрении кредита:
-        input(id='per-month-cost' name='perMonthCost' class='form-control' type='number' placeholder='2000')
-      hr(class='bg-secondary')
-      div(class='form-group')
-        label(class='text-light' for='current-debt') Текущая сумма долга по кредитам:
-        input(id='current-debt' name='currentCreditDebt' class='form-control' type='number' placeholder='1500')
-      div(class='form-group')
-        label(class='text-light' for='current-percent') Процентная ставка по кредиту:
-        input(id='current-percent' name='currentCreditPercent' class='form-control' type='number' placeholder='15')
-      hr(class='bg-secondary')
-      div(class='form-group')
-        label(class='text-light' for='month-credit') Месяц выдачи кредита:
-        select(id='month-credit' name='creditMonthReceive' class='form-control')
-          option(value='1') Январь
-          option(value='2') Февраль
-          option(value='3') Март
-          option(value='4') Апрель
-          option(value='5') Май
-          option(value='6') Июнь
-          option(value='7') Июль
-          option(value='8') Август
-          option(value='9') Сентябрь
-          option(value='10') Октябрь
-          option(value='11') Ноябрь
-          option(value='12') Декабрь
-      hr(class='bg-secondary')
-      div(class='form-group')
-        label(class='text-light' for='active-debts') Количество не погашенных кредитов:
-        input(id='active-debts' name='activeDebts' class='form-control' type='number' placeholder='1')
-      hr(class='bg-secondary')
-      div(class='form-group')
-        label(class='text-light' for='last-month-pay') Месяц последнего взноса по кредиту:
-        select(id='last-month-pay' name='lastMonthPayed' class='form-control')
-          option(value='1') Январь
-          option(value='2') Февраль
-          option(value='3') Март
-          option(value='4') Апрель
-          option(value='5') Май
-          option(value='6') Июнь
-          option(value='7') Июль
-          option(value='8') Август
-          option(value='9') Сентябрь
-          option(value='10') Октябрь
-          option(value='11') Ноябрь
-          option(value='12') Декабрь
-      hr(class='bg-secondary')
-      div(class='form-group')
-        label(class='text-light' for='skipped-pays') Число просроченных платежей более чем на 30 дней за 2 года:
-        input(id='skipped-pays' name='skippedPaydays' class='form-control' type='number' placeholder='1')
-      div(class='row justify-content-center pb-5')
-        button(id='submit-btn' type='submit' class='btn btn-secondary') Отправить на обработку
+  div(id='neuro-slide' class='jumbotron jumbotron-fluid jumbotron-default mb-0 text-light')
+    div(class='text-center p-md-5 slide-bg d-flex-inline flex-column align-items-stretch')
+      h4(class='h4')
+        span(class='jumbotron-text') Нейронные сети
+      p(class='lead')
+        span(class='jumbotron-text') Это стильно, модно молодежно!
+      hr
+      p(class='lead')
+        a(class='btn btn-default btn-lg' href='/neuro' role='button') Попробовать
+  div(id='pickman-slide' class='jumbotron jumbotron-fluid jumbotron-default mb-0 text-light')
+    div(class='text-center p-md-5 slide-bg d-flex-inline flex-column align-items-stretch')
+      h4(class='h4')
+        span(class='jumbotron-text') Искусственный Интеллект
+      p(class='lead')
+        span(class='jumbotron-text') Это постоянная доступность и максимальная честность!
+      hr
+      p(class='lead')
+        a(class='btn btn-default btn-lg' href='/neuro' role='button') Попробовать
+  div(id='ai-slide' class='jumbotron jumbotron-fluid jumbotron-default mb-0 text-light')
+    div(class='text-center p-md-5 slide-bg d-flex-inline flex-column align-items-stretch')
+      h4(class='h4')
+        span(class='jumbotron-text') Автоматизация
+      p(class='lead')
+        span(class='jumbotron-text') Это исключение человека как посредника!
+      hr
+      p(class='lead')
+        a(class='btn btn-default btn-lg' href='/neuro' role='button') Попробовать
