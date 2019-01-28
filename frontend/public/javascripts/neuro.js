@@ -9,10 +9,23 @@ $(document).ready(() => {
       },
       body: data,
       method: 'POST'
-    }).then(data => {
-      $('#loading-modal').modal('hide');
     })
-      .then(res => console.log(res))
+      .then(data => {
+        setTimeout(() => $('#loading-modal').modal('hide'), 1000);
+        data.json().then(dataJson => {
+          if (dataJson.status) {
+            setTimeout(() => {
+              $('#response-success-modal').modal('show');
+              $('#response-success-text').text('Доверять такому клиенту можно!');
+            }, 2000);
+            return;
+          }
+          setTimeout(() => {
+            $('#response-success-modal').modal('show');
+            $('#response-success-text').text('Доверять такому клиенту нельзя!');
+          }, 2000);
+        });
+      })
       .catch(err => {
         setTimeout(() => $('#loading-modal').modal('hide'), 1000);
         setTimeout(() => $('#response-error-modal').modal('show'), 2000);

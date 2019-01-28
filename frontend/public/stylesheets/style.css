@@ -17,7 +17,7 @@ input, select {
 }
 
 .btn-default {
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.75);
   border-radius: 0;
   color: var(--light);
 }

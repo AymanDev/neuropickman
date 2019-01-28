@@ -19,21 +19,25 @@ html
     crossorigin='anonymous')
     block head
   body(class='bg-secondary p-0')
-    header(class='p-2')
-      nav(class='navbar navbar-expand-lg navbar-dark')
-        a(class='navbar-brand' href='/') NeuroPickMan
-        button(class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarContent'
-        aria-controls='navbarContent' aria-expanded='false' aria-label='Toggle navigation')
-          span(class='navbar-toggler-icon')
-        div(id='navbarContent' class='collapse navbar-collapse')
-          ul(class='navbar-nav mr-auto')
-            li(class='navbar-item ' + (current === 'index' ? 'active' : ''))
-              a(class='nav-link text-light' href='/') Home
-            li(class='navbar-item ' + (current === 'neuro' ? 'active' : ''))
-              a(class='nav-link text-light' href='/neuro') Test Neuro
-            li(class='navbar-item ' + (current === 'philosophy' ? 'active' : ''))
-              a(class='nav-link text-light' href='#') Philosophy
-    main
-      block content
-    footer(class='p-4')
-      div(class='text-center text-light') Copyright @NeuropickmanTeam 2019. All rights reserved!
+    div(class='row')
+      div(class='col-md-2')
+      div(class='col-md-8')
+        header(class='p-2')
+          nav(class='navbar navbar-expand-md navbar-dark')
+            a(class='navbar-brand' href='/') NeuroPickMan
+            button(class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarContent'
+            aria-controls='navbarContent' aria-expanded='false' aria-label='Toggle navigation')
+              span(class='navbar-toggler-icon')
+            div(id='navbarContent' class='collapse navbar-collapse')
+              ul(class='navbar-nav mr-auto')
+                li(class='navbar-item ' + (current === 'index' ? 'active' : ''))
+                  a(class='nav-link text-light' href='/') Home
+                li(class='navbar-item ' + (current === 'neuro' ? 'active' : ''))
+                  a(class='nav-link text-light' href='/neuro') Test Neuro
+                li(class='navbar-item ' + (current === 'philosophy' ? 'active' : ''))
+                  a(class='nav-link text-light' href='#') Philosophy
+        main
+          block content
+        footer(class='p-4')
+          div(class='text-center text-light') Copyright @NeuropickmanTeam 2019. All rights reserved!
+      div(class='col-md-2')
